@@ -35,6 +35,9 @@
 					<div class="row">a.k.a. {{hero.alias}}</div>
 					<div class="row">located in {{hero.city}}</div>
 					<div class="row">Super Power: {{hero.power_name}}</div>
+					<div class="row">
+						<button class="btn btn-warning" ng-click="deleteHero($index)">Stop tracking {{hero.alias}}</button>
+					</div>
 				</div>
 			</div> <!-- end ng-repeat -->
 		</div> <!-- end heroListRemove -->

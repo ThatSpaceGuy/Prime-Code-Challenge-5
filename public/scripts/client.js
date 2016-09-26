@@ -30,8 +30,9 @@ myApp.controller('mainController', ['$scope','$http',function($scope,$http){
       data: newObject
     }).then(function ( response ){
       console.log('back from server with:', response);
+      $scope.showAll();
     });
-    $scope.showAll();
+
   }; // end addHero
 
   $scope.showAll = function(){
@@ -48,6 +49,29 @@ myApp.controller('mainController', ['$scope','$http',function($scope,$http){
       console.log('heroRoster:',heroRoster);
     });
   };// end showAll
+
+  $scope.deleteHero = function(requestedID){
+    console.log('in deleteHero', $scope);
+
+    var heroIndex = Number(requestedID);
+    console.log(heroIndex);
+    var idToDelete = {
+      id: heroRoster[heroIndex]._id
+    };
+    console.log(idToDelete);
+
+    $http({
+      method: 'DELETE',
+      url: '/hero/delete',
+      data: idToDelete,
+      headers: {"Content-Type": "application/json;charset=utf-8"}
+    }).then(function ( response ){
+      console.log('back from server with:', response);
+      $scope.showAll();
+    });
+
+  }; // end delete Item
+
   // Show all database results immediately
   $scope.showAll();
 }]); // end mainController

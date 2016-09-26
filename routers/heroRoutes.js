@@ -42,4 +42,13 @@ router.post('/create', function(req, res){
   }); // end newHero.save
 }); // end /create post route
 
+// delete hero
+router.delete('/delete', function(req, res){
+  console.log('hit delete route with:',req.body);
+  Hero.findByIdAndRemove({"_id":req.body.id}, function(){
+    console.log("Hero "+ req.body.id +" has been deleted.");
+    res.send(200);
+  });// end callback
+});// end delete
+
 module.exports = router;
