@@ -9,3 +9,12 @@
 body {
 	text-align: center;
 }
+
+.container {
+	margin: auto;
+}
+
+.heroView {
+	border: 1px solid black;
+	border-radius: 10px;
+}

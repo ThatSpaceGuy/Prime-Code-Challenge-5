@@ -1,21 +1,43 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<script src="vendors/angular.min.js"></script>
-    <script src="scripts/client.js"></script>
-		<link rel="stylesheet" href="vendors/bootstrap.min.css">
-    <link rel="stylesheet" href="styles/styles.css"/>
-		<title>Prime Code Challenge 5</title>
-	</head>
-	<body ng-app='myApp'>
-		<h1>Hero Tracker</h1>
-		<h2>of The Department of Superhero Knowledge</h2>
-		<div ng-controller="mainController">
-			What hero to add?<input type="text" ng-model="newHero">
+<head>
+	<script src="vendors/angular.min.js"></script>
+	<script src="scripts/client.js"></script>
+	<link rel="stylesheet" href="vendors/bootstrap.min.css">
+	<link rel="stylesheet" href="styles/styles.css"/>
+	<title>Prime Code Challenge 5</title>
+</head>
+<body ng-app='myApp'>
+	<h1>Hero Tracker</h1>
+	<h3>for The Department of Superhero Knowledge</h3>
+	<div ng-controller="mainController">
+		<div class="container" id="heroEntry">
+			<h5>Add a Superhero to track:</h5>
 			<p>
-				You entered: {{ newHero }}
+				<text>Superhero Alias:<input type="text" ng-model="aliasIn"></text>
+				<text>First Name:<input type="text" ng-model="firstNameIn"></text>
+				<text>Last Name:<input type="text" ng-model="lastNameIn"></text>
+			</p>
+			<p>
+				<text>City:<input type="text" ng-model="cityIn"></text>
+				<text>Super Power:<input type="text" ng-model="superPowerIn"></text>
 			</p>
 			<button ng-click="addHero()">Add Hero</button>
-		</div>
-	</body>
+		</div> <!-- end heroEntry -->
+		<div class="container" id="heroListRemove">
+			<h4>Heroes Tracked on The De.S.K.</h4>
+			<button ng-click="showAll()">Show Heroes</button>
+			<div ng-repeat="hero in heroRoster">
+				<div class="clearfix visible-xs-block" ng-if="$index % 3 == 0"></div>
+				<div class="clearfix visible-sm-block" ng-if="$index % 4 == 0"></div>
+				<div class="col-xs-4 col-sm-3 heroView">
+					<div class="row">#{{$index+1}} - {{hero.first_name}} {{hero.last_name}}</div>
+					<div class="row">a.k.a. {{hero.alias}}</div>
+					<div class="row">located in {{hero.city}}</div>
+					<div class="row">Super Power: {{hero.power_name}}</div>
+				</div>
+			</div> <!-- end ng-repeat -->
+		</div> <!-- end heroListRemove -->
+	</div> <!-- end mainController -->
+</body>
 </html>

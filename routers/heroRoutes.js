@@ -24,12 +24,11 @@ router.post('/create', function(req, res){
   var sentData = req.body;
 
   var newHero = new Hero({
-    // alias: String,
-    // first_name: String,
-    // last_name: String,
-    // city: String,
-    // power_name: String,
-    // created_at: Date
+    alias: sentData.alias,
+    first_name: sentData.first_name,
+    last_name: sentData.last_name,
+    city: sentData.city,
+    power_name: sentData.power_name
   }); // end var newHero
 
   newHero.save(function(err){

@@ -7,7 +7,7 @@ var heroSchema = new Schema({
   last_name: String,
   city: String,
   power_name: String,
-  created_at: Date
+  created_at: {type: Date, default: Date.now}
 });
 
 // dbitems is the name of the collection in the database
