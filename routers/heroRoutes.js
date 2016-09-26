@@ -42,6 +42,10 @@ router.post('/create', function(req, res){
   }); // end newHero.save
 }); // end /create post route
 
+router.get('/enum', function(req, res) {
+  res.send(Hero.schema.path('power_name').enumValues);
+});
+
 // delete hero
 router.delete('/delete', function(req, res){
   console.log('hit delete route with:',req.body);

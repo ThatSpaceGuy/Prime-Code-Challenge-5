@@ -13,14 +13,14 @@ var heroRoster = [];
 myApp.controller('mainController', ['$scope','$http',function($scope,$http){
   console.log('NG');
 
-  $scope.addHero = function(){
+  $scope.addHero = function(aliasRec, firstNameRec, lastNameRec, cityRec, superPowerRec){
     console.log('in addHero with', $scope.newHero);
     var newObject = {
-      alias: $scope.aliasIn,
-      first_name: $scope.firstNameIn,
-      last_name: $scope.lastNameIn,
-      city: $scope.cityIn,
-      power_name: $scope.superPowerIn
+      alias: aliasRec,
+      first_name: firstNameRec,
+      last_name: lastNameRec,
+      city: cityRec,
+      power_name: superPowerRec.type
     }; // end new hero
     console.log('sending:',newObject);
     // test send via http to post Route
@@ -34,6 +34,19 @@ myApp.controller('mainController', ['$scope','$http',function($scope,$http){
     });
 
   }; // end addHero
+
+  $http({
+    method: 'GET',
+    url: '/hero/enum'
+  }).then(function successCallback(response) {
+    $scope.enum = response.data.map(function(type) {
+      return {type: type };
+    });
+    $scope.selected = $scope.enum[0];
+    console.log('enum =', $scope.enum);
+  }, function errorCallback(response) {
+    console.log('err');
+  });
 
   $scope.showAll = function(){
     console.log('in showAll');

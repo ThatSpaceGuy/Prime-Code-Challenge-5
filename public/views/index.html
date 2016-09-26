@@ -20,9 +20,9 @@
 			</p>
 			<p>
 				<text>City:<input type="text" ng-model="cityIn"></text>
-				<text>Super Power:<input type="text" ng-model="superPowerIn"></text>
+				<text>Super Power:<select ng-model="superPowerIn" ng-options="power as power.type for power in enum track by power.type"></select></text>
 			</p>
-			<button ng-click="addHero()">Add Hero</button>
+			<button ng-click="addHero(aliasIn, firstNameIn, lastNameIn, cityIn, superPowerIn)">Add Hero</button>
 		</div> <!-- end heroEntry -->
 		<div class="container" id="heroListRemove">
 			<h4>Heroes Tracked on The De.S.K.</h4>
