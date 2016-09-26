@@ -10,9 +10,9 @@ app.use(bodyParser.urlencoded( {extended: false } ));
 app.use(bodyParser.json());
 
 //routers
-var itemRouter = require('../routers/itemRoutes.js');
+var heroRouter = require('../routers/heroRoutes.js');
 // use routes -- all routes in this router must start with /
-app.use('/', itemRouter);
+app.use('/', heroRouter);
 
 // :id give you the option to grab an id from the url
 // more info: Google (express routing)

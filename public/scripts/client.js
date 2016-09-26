@@ -3,7 +3,7 @@ console.log('scripts.js sourced!');
 
 var myApp = angular.module('myApp',[]);
 
-var allItems = [];
+var allHeroes = [];
 
 /// == Function Declarations == ///
 
@@ -13,12 +13,17 @@ var allItems = [];
 myApp.controller('mainController', ['$scope','$http',function($scope,$http){
   console.log('NG');
 
-  $scope.addItem = function(){
-    console.log('in addItem', $scope.newItem);
+  $scope.addHero = function(){
+    console.log('in addHero with', $scope.newHero);
 
     var newObject = {
-      title: $scope.newItem
-    }; // end new song
+      // alias: String,
+      // first_name: String,
+      // last_name: String,
+      // city: String,
+      // power_name: String,
+      // created_at: Date
+    }; // end new hero
     console.log('sending:',newObject);
     // test send via http to post Route
     $http({
@@ -29,7 +34,7 @@ myApp.controller('mainController', ['$scope','$http',function($scope,$http){
       console.log('back from server with:', response);
     });
 
-    allSongs.push(newObject);
-    console.log('allItems:', allItems);
-  };
-}]);
+    allHeroes.push(newObject);
+    console.log('allHeroes:', allHeroes);
+  }; // end addHero
+}]); // end mainController

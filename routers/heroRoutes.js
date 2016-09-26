@@ -3,11 +3,11 @@ var router = express.Router();
 
 var mongoose = require('mongoose');
 //model
-var Item = require('../models/dbItem.js');
+var Hero = require('../models/hero.js');
 
 router.get('/all', function(req,res){
   console.log('/all route hit');
-    Item.find({}, function(err, dbResults){
+    Hero.find({}, function(err, dbResults){
       if(err){
         console.log('error occurred:', err);
         res.sendStatus(500); // Internal Server error
@@ -15,30 +15,32 @@ router.get('/all', function(req,res){
         console.log('/all route returned:', dbResults);
         res.send(dbResults);
       }
-    });
-});
+    }); // end Hero.find
+}); // end /all get route
 
 router.post('/create', function(req, res){
   console.log('hit the /create post with:', req.body);
 
   var sentData = req.body;
 
-  var newItem = new Item({
-    name: sentData.name,
-    property2: sentData.property2,
-    property3: sentData.propery3
-  });
+  var newHero = new Hero({
+    // alias: String,
+    // first_name: String,
+    // last_name: String,
+    // city: String,
+    // power_name: String,
+    // created_at: Date
+  }); // end var newHero
 
-  newItem.save(function(err){
+  newHero.save(function(err){
     if(err){
       console.log('error occurred:', err);
       res.sendStatus(500); // Internal Server error
     } else {
-      console.log('New Item saved successfully!');
+      console.log('New Hero saved successfully!');
       res.sendStatus(201); // Status created
     }
-  });
-  res.sendStatus(200);
-});
+  }); // end newHero.save
+}); // end /create post route
 
 module.exports = router;

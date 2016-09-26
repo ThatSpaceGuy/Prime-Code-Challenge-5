@@ -5,16 +5,17 @@
     <script src="scripts/client.js"></script>
 		<link rel="stylesheet" href="vendors/bootstrap.min.css">
     <link rel="stylesheet" href="styles/styles.css"/>
-		<title>Page Title</title>
+		<title>Prime Code Challenge 5</title>
 	</head>
 	<body ng-app='myApp'>
-		<h1>Placeholder Text</h1>
+		<h1>Hero Tracker</h1>
+		<h2>of The Department of Superhero Knowledge</h2>
 		<div ng-controller="mainController">
-			What song is horrible?<input type="text" ng-model="badSong">
+			What hero to add?<input type="text" ng-model="newHero">
 			<p>
-				{{ badSong }} is a bad song (according to your opinions)
+				You entered: {{ newHero }}
 			</p>
-			<button ng-click="addSong()">Add Song</button>
+			<button ng-click="addHero()">Add Hero</button>
 		</div>
 	</body>
 </html>
