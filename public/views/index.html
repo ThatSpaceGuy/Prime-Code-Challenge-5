@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script src="vendors/angular.min.js"></script>
+    <script src="scripts/client.js"></script>
+		<link rel="stylesheet" href="vendors/bootstrap.min.css">
+    <link rel="stylesheet" href="styles/styles.css"/>
+		<title>Page Title</title>
+	</head>
+	<body ng-app='myApp'>
+		<h1>Placeholder Text</h1>
+		<div ng-controller="mainController">
+			What song is horrible?<input type="text" ng-model="badSong">
+			<p>
+				{{ badSong }} is a bad song (according to your opinions)
+			</p>
+			<button ng-click="addSong()">Add Song</button>
+		</div>
+	</body>
+</html>
