@@ -30,8 +30,9 @@ app.use('/hero', heroRouter);
 mongoose.connect('mongodb://localhost:27017/heroTrackerDB');
 
 // spin up server
-app.listen('8070','localhost',function(){
-  console.log('Server is listening on port 8070');
+var port = '4242';
+app.listen(port,'localhost',function(){
+  console.log('Server is listening on port', 4242);
 });
 
 // base url hit
